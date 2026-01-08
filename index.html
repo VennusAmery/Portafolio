@@ -53,28 +53,22 @@
       const loginBtn = document.getElementById('loginBtn');
 
       loginBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita que el navegador cambie de página antes de tiempo
-        // Capturamos el valor del input con ID 
+        e.preventDefault(); 
         const inputElement = document.getElementById('userInput');
         
         if (inputElement) {
           const nombreEscrito = inputElement.value;
-          // Si está vacío, ponemos "Invitado"
           const nombreFinal = nombreEscrito.trim() !== "" ? nombreEscrito : "Invitado"; 
-          // Cambiamos el texto dentro del modal
           welcomeUser.textContent = `¡Hola, ${nombreFinal}!`;
         }
-        // Mostramos el modal
         modal.style.display = 'block';
-        // Esperamos 2 segundos y redirigimos
         setTimeout(() => {
           cerrarYRedirigir();
         }, 1000); 
       });
 
-      // Función para ejecutar la salida
       function cerrarYRedirigir() {
-        modal.classList.add('fadeOut'); // Aplica la animación de CSS
+        modal.classList.add('fadeOut');
         setTimeout(() => {
           window.location.href = 'opciones.html';
         }, 500); // Da tiempo a que termine la animación de desvanecimiento
