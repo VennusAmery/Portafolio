@@ -89,12 +89,14 @@ async function renderThumbnail(url, canvas) {
             }
         }
 
-        card.addEventListener('click', () => {
-            if (pdfViewer && pdfWindow) {
-                pdfViewer.src = pdfUrl;
-                pdfWindow.style.display = 'flex';
-            }
-        });
+card.addEventListener('click', () => {
+    if (pdfViewer && pdfWindow) {
+        const viewerUrl = `lib/pdfjs/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
+        
+        pdfViewer.src = viewerUrl;
+        pdfWindow.style.display = 'flex';
+    }
+});
     });
 
     //  CERRAR VISOR 
