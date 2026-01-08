@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Bloggy</title>
+    <link rel="stylesheet" href="Style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <div class="screen">
+      <div class="login-card">
+        <img src="img/lock.png" class="bg-lock" alt="Fondo">
+
+        <div class="login-box">
+          <div class="pfp"></div>
+            <label>USUARIO</label>
+            <input type="text" id="userInput" placeholder="Ingresa tu usuario">
+            <label>CONTRASEÑA</label>
+            <input type="password" placeholder="Ingresa tu contraseña">
+            <button id="loginBtn">INGRESAR</button>
+            <p class="info">Ingresa cualquier dato o dejalo vacio :D</p>
+        </div>
+
+        <!-- Modal de bienvenida -->
+        <div id="welcomeModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>¡Bienvenido!</h2>
+            <p id="welcomeUser">Hola, Usuario</p>
+          </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="left-icons">
+              <img src="img/windows.png" alt="windows" class="icon">
+            </div>
+
+          <div class="right-icons">
+            <img src="img/speaker.png" alt="Volumen" class="icon">
+            <img src="img/battery.png" alt="bateria" class="icon">
+            <img src="img/calendar.png" alt="calendario" class="icon">
+            <img src="img/wifi.png" alt="WiFi" class="icon">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById('welcomeModal');
+      const closeBtn = document.querySelector('.close');
+      const welcomeUser = document.getElementById('welcomeUser');
+      const loginBtn = document.getElementById('loginBtn');
+
+      loginBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita que el navegador cambie de página antes de tiempo
+        // Capturamos el valor del input con ID 
+        const inputElement = document.getElementById('userInput');
+        
+        if (inputElement) {
+          const nombreEscrito = inputElement.value;
+          // Si está vacío, ponemos "Invitado"
+          const nombreFinal = nombreEscrito.trim() !== "" ? nombreEscrito : "Invitado"; 
+          // Cambiamos el texto dentro del modal
+          welcomeUser.textContent = `¡Hola, ${nombreFinal}!`;
+        }
+        // Mostramos el modal
+        modal.style.display = 'block';
+        // Esperamos 2 segundos y redirigimos
+        setTimeout(() => {
+          cerrarYRedirigir();
+        }, 1000); 
+      });
+
+      // Función para ejecutar la salida
+      function cerrarYRedirigir() {
+        modal.classList.add('fadeOut'); // Aplica la animación de CSS
+        setTimeout(() => {
+          window.location.href = 'opciones.html';
+        }, 500); // Da tiempo a que termine la animación de desvanecimiento
+      }
+      closeBtn.addEventListener('click', cerrarYRedirigir);
+    </script>
+  </body>
+</html>

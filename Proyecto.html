@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Proyectos</title>
+    <link rel="stylesheet" href="Styles-Proyectos.css">
+    </head>
+    <body>
+        <div class="screen">
+            <div class="login-card">
+                <img src="img/on.png" class="bg-on" alt="Fondo">
+                    <!-- VENTANA PRINCIPAL -->
+                <div class="main-window">
+                    <!-- Barra superior azul -->
+                    <div class="main-header">
+                        <div class="window-buttons">
+                            <a href="opciones.html" class="btn green"></a>
+                            <a href="opciones.html" class="btn yellow"></a>
+                            <a href="opciones.html" class="btn red"></a>
+                        </div>
+                    </div>
+
+                    <!-- Contenido -->
+                    <div class="main-content">
+                        <div class="card project-card"
+                            data-title="ADENDAR CITA"
+                            data-desc="Proyecto miniatura con la finalidad de agendar una cita"
+                            data-tec="Html, javascript, css"
+                            data-time="2 semanas"
+                            data-end="Diciembre 3 del 2025"
+                            data-team="Bárbara Saldaña"
+                            data-images='[
+                                "imgPro/Dni1.png",
+                                "imgPro/Dni3.png",
+                                "imgPro/Dni2.png"
+                                ]'
+                            data-repo="https://github.com/VennusAmery/Dni"
+                            data-page="https://vennusamery.github.io/Dni/">
+
+                            <img src="img/pdf.png" class="folder-img">
+                            <p><strong>AGENDAR CITA</strong> </p>
+                        </div>
+
+                        <div class="card project-card"
+                            data-title="Página Web Cineasta"
+                            data-desc="Pagina web de un cineasta guatemalteco llamado Daniel Ruiz"
+                            data-tec="Html, javascript, css"
+                            data-time="1 Mes"
+                            data-end="Enero 1 del 2025"
+                            data-team="Bárbara Saldaña"
+                            data-images='[
+                                "imgPro/DR1.png",
+                                "imgPro/DR2.png",
+                                "imgPro/DR3.png",
+                                "imgPro/DR4.png",
+                                "imgPro/DR5.png"
+                                ]'
+                            data-repo="https://github.com/VennusAmery/DanielRuiz"
+                            data-page="https://vennusamery.github.io/DanielRuiz/">
+
+                            <img src="img/pdf.png" class="folder-img">
+                            <p><strong>WEB - CINE</strong> </p>
+                        </div>   
+
+                        <div class="card project-card"
+                            data-title="Sistema Odontologíco"
+                            data-desc="Sistema web diseñado para la gestion de una clinica de odontología"
+                            data-tec="Html, Javascript, Css, React + Vite"
+                            data-time="En Proceso"
+                            data-end="-"
+                            data-team="Bárbara Saldaña, Sergio Izeppi, Maria Morales"
+                            data-images='[
+                                "imgPro/Odonto1.png",
+                                "imgPro/Odonto2.png",
+                                "imgPro/Odonto3.png",
+                                "imgPro/Odonto4.png",
+                                "imgPro/Odonto5.png",
+                                "imgPro/Odonto6.png"
+                                ]'
+                            data-repo="https://github.com/VennusAmery/SistemaOdontologico"
+                            data-page="">
+
+                            <img src="img/pdf.png" class="folder-img">
+                            <p><strong>Sistema Odontologíco</strong> </p>
+                        </div>   
+
+                        <div class="card project-card"
+                            data-title="Poemario"
+                            data-desc="Sistema básico para la visualización de un pdf"
+                            data-tec="Html, javascript, css"
+                            data-time=" 2 días"
+                            data-end="Diciembre 30 del 2025"
+                            data-team="Bárbara Saldaña"
+                            data-images='[
+                                "imgPro/Poe1.png",
+                                "imgPro/Poe2.png"
+                                ]'
+                            data-repo="https://github.com/VennusAmery/Poemario"
+                            data-page="https://vennusamery.github.io/Poemario/">
+
+                            <img src="img/pdf.png" class="folder-img">
+                            <p><strong>Poemario</strong> </p>
+                        </div> 
+
+                    </div>
+                        <!-- MODAL PROYECTO -->
+                    <div class="project-modal" id="projectModal">
+                        <div class="project-header">
+                            <div class="window-buttons">
+                                <span class="btn green closeBtn"></span>
+                                <span class="btn yellow closeBtn"></span>                                                               
+                                <span class="btn red closeBtn"></span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-layout">
+                                <!-- INFO -->
+                                <div class="project-info-side">
+                                    <h2 class="project-title-inside" id="projectTitle"></h2>                                                                
+                                    <p class="project-desc" id="projectDesc"></p>
+                                        <div class="project-meta">
+                                            <p><strong>🛠 Tecnologías:</strong> <span id="projectTec"></span></p>
+                                            <p><strong>⏱ Tiempo:</strong> <span id="projectTime"></span></p>
+                                            <p><strong>📅 Finalización:</strong> <span id="projectEnd"></span></p>
+                                            <p><strong>👥 Equipo:</strong> <span id="projectTeam"></span></p>
+                                        </div>
+                                        <div class="project-links">
+                                            <a href="#" target="_blank" id="repoLink">Repositorio</a>
+                                            <a href="#" target="_blank" id="pageLink">Página</a>
+                                        </div>
+                                </div>
+                                                <!-- CARRUSEL -->
+                                <div class="project-carousel-side">
+                                    <div class="carousel">
+                                        <button class="carousel-btn left" id="prevImg">‹</button>
+                                        <img id="carouselImg" src="" alt="Proyecto">
+                                        <button class="carousel-btn right" id="nextImg">›</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <!-- Barra abajo -->
+                <div class="bottom-bar">
+                    <div class="left-icons">
+                        <a href="Index.html">
+                            <img src="img/windows.png" alt="windows" class="icon">
+                        </a>
+                    </div>
+                    <div class="right-icons">
+                        <img src="img/speaker.png" class="icon">
+                        <img src="img/battery.png" class="icon">
+                            <div style="position: relative; display: inline-block;">
+                                <img src="img/calendar.png" alt="calendario" class="icon" id="calendarIcon" style="cursor: pointer;">
+                                <input type="date" id="hiddenCalendar" style="position: absolute; top: 0; left: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;">
+                            </div>                          
+                            <img src="img/wifi.png" class="icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script2.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Opciones</title>
+        <link rel="stylesheet" href="Style-Opciones.css">
+    </head>
+
+    <body>
+        <div class="screen">
+            <div class="login-card">
+                <img src="img/on.png" class="bg-on" alt="Fondo">
+                <div class="Folder-icons">
+                    <div class="folder">
+                        <a href="poemas.html">
+                            <img src="img/folder.png" alt="Poemas" class="folder-icon">
+                            <span class="folder-text">POEMAS</span>
+                        </a>
+                    </div>
+
+                    <div class="folder">
+                        <a href="Proyecto.html">
+                            <img src="img/folder.png" alt="Proyectos" class="folder-icon">
+                            <span class="folder-text">PROYECTOS</span>
+                        </a>
+                    </div>
+
+                    <div class="folder">
+                        <a href="Fotografia.html">
+                            <img src="img/folder.png" alt="Fotografía" class="folder-icon">
+                            <span class="folder-text">FOTOGRAFÍA</span>
+                        </a>
+                    </div>
+
+                    <div class="folder"  data-pdf="PdfMe/CvCanvas.pdf">
+                        <img src="img/pdf.png" alt="Fotografía" class="folder-icon">
+                        <span class="folder-text">SOBRE MI</span>
+                    </div>
+
+                    <div class="folder">
+                        <a href="certificados.html">
+                            <img src="img/folder.png" alt="Fotografía" class="folder-icon">
+                            <span class="folder-text">CERTIFICADOS</span>
+                        </a>
+                    </div>
+
+                        <!-- cOSA PARA LEER PDF-->
+                    <div class="pdf-window" id="pdfWindow">
+                        <div class="pdf-header">
+                            <div class="window-buttons">
+                                <span class="btn green"></span> 
+                                <span class="btn yellow" id="btn-maximize"></span> 
+                                <span class="btn red" id="btn-close"></span> 
+                            </div>
+                        </div>
+                        <iframe id="pdfViewer"></iframe>
+                    </div>
+                </div>
+
+                <div class="bottom-bar">
+                    <div class="left-icons">
+                        <a href="Index.html">
+                            <img src="img/windows.png" alt="windows" class="icon">
+                        </a>
+                    </div>
+
+                    <div class="right-icons">
+                        <img src="img/speaker.png" alt="Volumen" class="icon">
+                        <img src="img/battery.png" class="icon">  
+                            <div style="position: relative; display: inline-block;">
+                                <img src="img/calendar.png" alt="calendario" class="icon" id="calendarIcon" style="cursor: pointer;">
+                                <input type="date" id="hiddenCalendar" style="position: absolute; top: 0; left: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;">
+                            </div>   
+                        <img src="img/wifi.png" alt="WiFi" class="icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="scriptMe.js"></script>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fotografías</title>
+        <link rel="stylesheet" href="Styles-Foto.css">
+    </head>
+
+    <body>
+        <div class="screen">
+        <div class="login-card">
+            <img src="img/on.png" class="bg-on" alt="Fondo">
+                <!-- VENTANA PRINCIPAL -->
+            <div class="main-window">
+                    <!-- Barra superior azul -->
+                <div class="main-header">
+                    <div class="window-buttons">
+                        <a href="opciones.html" class="btn green"></a>
+                        <a href="opciones.html" class="btn yellow"></a>
+                        <a href="opciones.html" class="btn red"></a>
+                    </div>
+                </div>
+
+                    <!-- Contenido -->
+                <div class="main-content">
+                    <div class="card pdf-card">
+                        <img src="imgFoto/1.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/2.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/3.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/4.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/5.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/6.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/7.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/8.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/9.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/10.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <div class="card pdf-card">
+                        <img src="imgFoto/11.jpeg" class="folder-img" alt="imgagen">
+                    </div>
+
+                    <!-- visualizar fotos-->
+                    <div id="photoViewer" class="photo-modal">
+                        <div class="photo-header">
+                            <span>Visualizador de Fotos</span>
+                            <div class="window-buttons">
+                                <span class="btn green"></span>
+                                <span id="btn-maximize-photo" class="btn yellow"></span>
+                                <span id="closePhoto" class="btn red"></span>
+                            </div>
+                        </div>
+                        <div class="photo-content">
+                            <button class="nav-btn prev" id="prevBtn">&#10094;</button>
+                            <img id="activePhoto" src="" alt="Foto">
+                            <button class="nav-btn next" id="nextBtn">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Barra abajo -->
+                <div class="bottom-bar">
+                    <div class="left-icons">
+                        <a href="Index.html">
+                            <img src="img/windows.png" alt="windows" class="icon">
+                        </a>
+                    </div>
+
+                    <div class="right-icons">
+                        <img src="img/speaker.png" class="icon">
+                        <img src="img/battery.png" class="icon">
+                            <div style="position: relative; display: inline-block;">
+                                <img src="img/calendar.png" alt="calendario" class="icon" id="calendarIcon" style="cursor: pointer;">
+                                <input type="date" id="hiddenCalendar" style="position: absolute; top: 0; left: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;">
+                            </div>                          
+                            <img src="img/wifi.png" class="icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scriptFoto.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    </body>
+</html>
