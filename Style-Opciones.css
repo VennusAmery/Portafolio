@@ -1,0 +1,357 @@
+/*=========================================================*/
+/*BASE*/
+/*=========================================================*/* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*=========================================================*/
+/*CUERPO*/
+/*=========================================================*/
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #a9c6e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*=========================================================*/
+/*marco exterior */
+/*=========================================================*/
+
+.screen {
+  background: white;
+  padding: 10px;
+}
+
+/* Recuadro principal */
+.login-card {
+  position: relative;
+  width: 95vw;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/*=========================================================*/
+/*FONDO */
+/*=========================================================*/
+
+.bg-on {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+/*=========================================================*/
+/*CONTENEDOR DE CARPETAS*/
+/*=========================================================*/
+
+.Folder-icons {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  gap: 45px 60px;
+  padding: 60px;
+}
+
+/* Carpeta individual */
+.folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Imagen del folder */
+.folder-icon {
+  width: 85px;  
+  height: auto;
+}
+
+.folder-text {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.folder:hover .folder-icon {
+  transform: scale(1.05);
+}
+
+/*=========================================================*/
+/*visor pdf*/
+/*=========================================================*/
+
+.pdf-window {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 100%;
+  background: white;
+  display: none;
+  flex-direction: column;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.pdf-window.active {
+  display: flex;
+}
+
+/* HEADER del visor PDF */
+.pdf-header {
+  background: #1e4b78;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-weight: bold;
+}
+
+/* Iframe */
+.pdf-window iframe {
+  width: 100%;
+  height: calc(100% - 55px); 
+  border: none;
+}
+
+/*=========================================================*/
+/*BOTONES VISOR*/
+/*=========================================================*/
+
+.window-buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+    align-items: center;
+}
+
+/* Estilo base */
+.btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón Verde  */
+.btn.green {
+    background: #6ddf6d;
+    cursor: default;
+}
+
+/* Botón Amarillo */
+.btn.yellow {
+    background: #ffe066;
+    cursor: pointer;
+}
+
+/* Botón Rojo */
+.btn.red {
+    background: #ff6b6b;
+    cursor: pointer;
+}
+
+/*=========================================================*/
+/*barra inferior*/
+/*=========================================================*/
+
+.bottom-bar {
+width: 100%;
+    height: 35px;
+    background: white;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    box-sizing: border-box;
+    z-index: 1; 
+    position: relative; 
+    margin-top: auto;
+}
+
+/*=========================================================*/
+/*iconos*/
+/*=========================================================*/
+
+.left-icons,
+.right-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.icon {
+  height: 24px;
+  width: auto;
+  cursor: pointer;
+}
+
+.icon {
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Tooltip básico para mostrar carga o info */
+.icon[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 40px;
+    background: #333;
+    color: white;
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/*=========================================================*/
+/*link*/
+/*=========================================================*/
+
+a {
+  text-decoration: none;
+}
+
+.link-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1); 
+    pointer-events: auto; 
+    text-decoration: none;
+}
+
+.link-enabled {
+    opacity: 1;
+    cursor: pointer;
+    filter: grayscale(0);
+}
+
+/*=========================================================*/
+/*MAX MIN*/
+/*=========================================================*/
+
+/* Estado normal de la ventana */
+.main-window {
+    transition: all 0.3s ease;
+}
+
+/* Estado cuando se hace clic en el botón amarillo */
+.main-window.is-maximized {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+.btn.green {
+    cursor: pointer;
+}
+
+/*=========================================================*/
+/*RESPONSIVE*/
+/*=========================================================*/
+
+@media (max-width: 600px) {
+    .screen {
+        padding: 0; 
+    }
+
+.bg-on {
+        display: none; 
+    }
+
+    .login-card {
+        background-image: url('img/onResponsive.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+.folder {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    cursor: pointer;
+    width: 120px;      
+    text-decoration: none; 
+}
+
+.folder-icon {
+    width: 80px;           
+    height: auto;
+    margin-bottom: 10px;   
+    transition: transform 0.2s ease;
+}
+
+/* Texto debajo */
+.folder-text {
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
+    width: 100%;          
+    word-wrap: break-word;  
+}
+
+.folder:hover .folder-icon {
+    transform: scale(1.1);
+}
+
+.pdf-window {
+  width: 95%;
+  height: 85%;
+  top: 45%; 
+  }
+}
+
+/* Tablets o pantallas medianas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .Folder-icons {
+        grid-template-columns: repeat(3, 120px); 
+        gap: 40px;
+    }
+}
+
+/* Pantallas muy bajitas  */
+@media (max-height: 500px) {
+    .Folder-icons {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 20px;
+        gap: 15px;
+    }
+    .folder-icon {
+        width: 50px;
+    }
+}

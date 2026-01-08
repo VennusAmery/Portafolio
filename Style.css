@@ -1,0 +1,366 @@
+/*=========================================================*/
+/*GENERAL*/
+/*=========================================================*/
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #a9c6e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  font-size: 10px;
+  margin-top: 20px;
+}
+
+/*=========================================================*/
+/*MARCO BLANCO*/
+/*=========================================================*/
+
+.screen {
+  background: white;
+  padding: 10px;
+}
+
+.login-card {
+  padding-top: 50px;
+  position: relative;
+  width: 95vw;
+  height: 90vh;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+ align-items: flex-start;  
+ flex-direction: column;
+  justify-content: flex-start;
+}
+
+/*=========================================================*/
+/*FONDO BLANCO*/
+/*=========================================================*/
+
+.bg-lock {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px);
+  transform: scale(1.1); 
+  z-index: 1;
+}
+
+/*=========================================================*/
+/*LOGINS*/
+/*=========================================================*/
+
+/* Login encima */
+.login-box {
+  position: relative;
+  z-index: 2;
+  margin-left: 60px;
+  padding: 40px;
+  width: 380px;
+  border-radius: 12px;
+  color: white;
+  flex-grow: 1; 
+}
+
+/* Foto de perfil */
+.pfp {
+  width: 120px;
+  height: 120px;
+  background-image: url("img/pfp.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 auto 25px;
+}
+
+/* Texto */
+label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+/*=========================================================*/
+/*BOTONES LOGIN*/
+/*=========================================================*/
+
+button {
+  background: #9dbbdd;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #88a9cf;
+}
+
+.bottom-bar {
+  width: 100%;
+  height: 35px;
+  background: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  box-sizing: border-box;
+  z-index: 2;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/*=========================================================*/
+/*BARRA ABAJO */
+/*=========================================================*/
+
+.left-icons,
+.right-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.icon {
+  height: 24px;
+  width: auto;
+  cursor: pointer;
+}
+
+.icon {
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Tooltip básico para mostrar carga o info */
+.icon[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 40px;
+    background: #333;
+    color: white;
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/*=========================================================*/
+/*MODAL*/
+/*=========================================================*/
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); 
+animation: fadeIn 0.3s ease; 
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto; 
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+animation: slideDown 0.2s ease; 
+}
+
+.modal-content h2 {
+  margin: 0 0 10px 0;
+  color: #1e4b78;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #333;
+}
+
+/*=========================================================*/
+/* BTN CERRAR MODAL*/
+/*=========================================================*/
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+/*=========================================================*/
+/*SCROLLBAR*/
+/*=========================================================*/
+
+/* Tamaño de la barra*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* El fondo de la barra */
+::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* La parte que se mueve */
+::-webkit-scrollbar-thumb {
+    background: #1e4b7a; /* Color base */
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+/* Cuando pasas el mouse por encima del scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: #3274ba; 
+}
+
+/*=========================================================*/
+/*ANIMACION */
+/*=========================================================*/
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideDown {
+  from {transform: translateY(-50px); opacity:0;}
+  to {transform: translateY(0); opacity:1;}
+}
+
+.fadeOut {
+  animation: fadeOut 0.2s ease forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/*=========================================================*/
+/*RESPONSIVE*/
+/*=========================================================*/
+
+/* Tablets */
+@media (max-width: 992px) {
+  .login-box {
+    margin-left: 30px; 
+    width: 350px;
+  }
+
+    .bg-lock {
+    display: none; 
+  }
+
+  .login-card {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    align-items: center; 
+    padding-top: 20px;
+    background-image: url('img/lockResponsive.png');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .screen {
+    padding: 0; 
+  }
+
+  .bg-lock {
+    display: none; 
+  }
+
+  .login-card {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    align-items: center; 
+    padding-top: 20px;
+    background-image: url('img/lockResponsive.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .login-box {
+    margin-left: 0; 
+    width: 90%;    
+    padding: 20px;
+  }
+
+  .pfp {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 30% auto;
+  }
+
+  .right-icons {
+    gap: 8px;
+  }
+  
+  .icon {
+    height: 20px;
+  }
+}
+
+/* celulares en horizontal */
+@media (max-height: 500px) {
+  .login-card {
+    padding-top: 5px;
+  }
+  .pfp {
+    display: none;
+  }
+  .login-box {
+    padding: 15px;
+  }
+}

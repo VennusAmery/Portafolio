@@ -1,0 +1,405 @@
+/*=========================================================*/
+/*BASE */
+/*=========================================================*/
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #a9c6e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*=========================================================*/
+/*marco exterior */
+/*=========================================================*/
+
+.screen {
+  background: white;
+  padding: 10px;
+}
+
+/* Recuadro principal */
+
+.login-card {
+  position: relative;
+  width: 95vw;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/*=========================================================*/
+/*fondo */
+/*=========================================================*/
+
+.bg-on {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+/*=========================================================*/
+/*ventana blanca */
+/*=========================================================*/
+
+.main-window {
+  position: relative;
+  z-index: 2;
+  width: 85%;
+  margin: 60px auto;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  overflow: hidden;
+    height: calc(100% - 120px); 
+}
+
+.main-header {
+  background: #1e4b78;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+/*=========================================================*/
+/*botones*/
+/*=========================================================*/
+
+.window-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.green { background: #6ddf6d; }
+.yellow { background: #ffe066; }
+.red { background: #ff6b6b; }
+
+/*=========================================================*/
+/*contenido */
+/*=========================================================*/
+
+.main-content {
+  padding: 60px 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  text-align: center;
+  max-height: 100%;  
+  overflow-y: auto;  
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card p {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #060000;
+  font-weight: bold;
+}
+
+.folder-img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .folder-img {
+  transform: scale(1.05);
+}
+
+.window-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto; 
+}
+
+/*=========================================================*/
+/*ventana max */
+/*=========================================================*/
+
+.main-window {
+    transition: all 0.3s ease; 
+    overflow: hidden;
+}
+
+/* Estado cuando esta MAXIMIZADA */
+.main-window.is-maximized {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999;
+    margin: 0 !important;
+}
+
+/*=========================================================*/
+/*botones modal*/
+/*=========================================================*/
+
+.btn {
+    cursor: pointer;
+}
+
+.close-pdf {
+  cursor: pointer;
+}
+
+/* al hacer click */
+.close-btn:active {
+  transform: scale(0.95);
+}
+
+/*=====================================================*/
+/*vsualizador de fotos*/
+/*=====================================================*/
+
+.photo-modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 85%;
+    background: #222;
+    z-index: 1000;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #444;
+}
+
+.photo-header {
+    background: #1e4b78;
+    color: white;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.photo-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#activePhoto {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+/*=========================================================*/
+/* botones del visualizador */
+/*=========================================================*/
+
+.nav-btn {
+    position: absolute;
+    background: #1e4b78;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 45%;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.nav-btn:hover { background: rgba(255,255,255,0.3); }
+.prev { left: 0; }
+.next { right: 0; }
+
+/*=====================================================*/
+/*barra inferior*/
+/*=====================================================*/
+.bottom-bar {
+  width: 100%;
+  height: 35px;
+  background: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+  z-index: 1;
+  margin-top: auto;
+}
+
+/* Iconos */
+.left-icons,
+.right-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.icon {
+  height: 24px;
+  width: auto;
+  cursor: pointer;
+}
+
+.icon {
+    transition: transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Tooltip básico para mostrar carga o info */
+.icon[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 40px;
+    background: #333;
+    color: white;
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/*=========================================================*/
+/*SCROLL BAR */
+/*=========================================================*/
+
+/* Tamaño de la barra*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* El fondo de la barra */
+::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* La parte que se mueve */
+::-webkit-scrollbar-thumb {
+    background: #1e4b7a; /* Color base */
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+/* Cuando pasas el mouse por encima del scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: #3274ba; 
+}
+
+/*=========================================================*/
+/*responsive*/
+/*=========================================================*/
+
+@media (max-width: 768px) {
+    .main-window {
+        width: 95%;
+        margin: 20px auto;
+        height: calc(100% - 70px);
+    }
+
+    .main-content {
+        padding: 20px;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+
+    .folder-img {
+        width: 100px; 
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 12px; 
+        line-height: 1.2;
+    }
+}
+
+/* Pantallas muy pequeñas*/
+@media (max-width: 480px) {
+    .main-content {
+        grid-template-columns: repeat(2, 1fr); 
+        padding: 15px 10px;
+        gap: 15px;
+    }
+
+    .folder-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .screen {
+        padding: 0;
+    }
+    
+    .login-card {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .pdf-window {
+        z-index: 100;
+    }
+    
+    .pdf-header {
+        height: 50px; 
+    }
+}
+
+.main-content {
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+    .btn {
+        width: 22px;
+        height: 22px;
+    }
+}
