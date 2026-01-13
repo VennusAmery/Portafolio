@@ -40,10 +40,21 @@ btnClose.addEventListener('click', () => {
     window.location.href = 'opciones.html'; 
 });
 
-pdfDiv.addEventListener('click', () => {
-    const pdfPath = pdfDiv.getAttribute('data-pdf'); 
-    pdfViewer.src = pdfPath; 
-    pdfWindow.style.display = 'block'; 
+// querySelectorAll para capturar todas las carpetas
+const folders = document.querySelectorAll('.folder[data-pdf]');
+
+folders.forEach(folder => {
+    folder.addEventListener('click', () => {
+        const pdfPath = folder.getAttribute('data-pdf'); 
+        console.log("Intentando abrir:", pdfPath);
+        
+        if (pdfViewer) {
+            pdfViewer.src = pdfPath; 
+            pdfWindow.style.display = 'block'; 
+        } else {
+            console.error("No se encontró el elemento pdfViewer (iframe/object)");
+        }
+    });
 });
 
 closeBtns.forEach(btn => {

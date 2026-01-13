@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Bloquear clic derecho en toda la página
+// Bloquear clic derecho 
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
 }, false);
